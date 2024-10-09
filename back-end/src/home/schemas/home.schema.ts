@@ -31,13 +31,28 @@ export class Home extends Document{
     bedroom: number
 
     @Prop() 
+    house_direction: string;
+
+    @Prop()
+    bancol_direction: string;
+
+    @Prop() 
     price: number
 
     @Prop() 
-    images: string[];
+    priceunit: string;
 
     @Prop() 
-    type:string
+    numberfloors: number
+
+    @Prop() 
+    interior: string;
+
+    @Prop() 
+    legal_document: string;
+
+    @Prop() 
+    images: string[];
 
     @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Category' })
     category: Category;

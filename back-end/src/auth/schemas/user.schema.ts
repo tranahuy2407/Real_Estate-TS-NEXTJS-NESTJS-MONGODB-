@@ -21,6 +21,12 @@ export class User extends Document{
         default: [Role.User]
     })
     role: Role[];
+
+    @Prop({default:''})
+    personaltaxcode: String;
+
+    @Prop({default:''})
+    phone: String[];
     
     @Prop({ 
         default: 'https://res.cloudinary.com/dmcfhbwbb/image/upload/v1727328075/Real%20-%20Estate/Auth/g64ogu7thcdltvgfcoas.jpg' 

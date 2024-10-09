@@ -83,7 +83,7 @@ const Navbar = (props: Props) => {
                             <IoIosNotifications size={20} />
                         </div>
                     </Link>
-                    <Link href="/post-ad">
+                    <Link href="/rehome/post-home">
                         <button className='py-2 px-4 bg-purple-500 text-white rounded'>
                             Đăng tin
                         </button>

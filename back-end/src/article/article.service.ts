@@ -37,7 +37,6 @@ export class ArticleService {
 
   async create(article: Article, user: User): Promise<Article> {
     const data = Object.assign(article, { user: user._id });
-
     const res = await this.articleModel.create(article);
     return res;
   }

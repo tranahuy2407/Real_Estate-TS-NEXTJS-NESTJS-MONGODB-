@@ -1,6 +1,5 @@
 import { IsArray, IsNotEmpty, IsNumber, IsString, IsEmpty } from "class-validator";
 import { Category } from "src/category/shemas/category.schema";
-
 export class UpdateHomeDto{
 
     @IsNotEmpty()
@@ -48,6 +47,6 @@ export class UpdateHomeDto{
     readonly status: number;
 
 
-    @IsEmpty({message: "Bạn chưa có danh mục của nhà!"})
-    readonly user: Category;
+    @IsEmpty({message: "Bạn chưa có danh mục cơ sở của nhà!"})
+    readonly category: Category;
 }   

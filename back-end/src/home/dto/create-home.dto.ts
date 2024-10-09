@@ -44,10 +44,17 @@ export class CreateHomeDto{
     readonly type: string;
 
     @IsNotEmpty()
+    @IsString()
+    readonly house_direction: string;
+
+    @IsNotEmpty()
+    @IsString()
+    readonly bancol_direction: string;
+
+    @IsNotEmpty()
     @IsNumber()
     readonly status: number;
 
-
     @IsEmpty({message: "Bạn chưa có danh mục của nhà!"})
-    readonly user: Category;
+    readonly category: Category;
 }   

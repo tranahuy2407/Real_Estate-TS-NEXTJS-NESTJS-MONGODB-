@@ -12,8 +12,8 @@ export class Wishlist extends Document{
     @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Category' })
     user: User;
 
-    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Category' })
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Home' })
     home: Home[];
 
 }
-export const WishlistSchema = SchemaFactory.createForClass(Home)
+export const WishlistSchema = SchemaFactory.createForClass(Wishlist)

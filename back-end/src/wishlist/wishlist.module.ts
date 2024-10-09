@@ -6,11 +6,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { WishlistSchema } from './schemas/wishlist.schema';
 
 @Module({
-  imports:[
+  imports: [
     AuthModule,
     MongooseModule.forFeature([{ name: 'Wishlist', schema: WishlistSchema }]),
   ],
   controllers: [WishlistController],
-  providers: [WishlistService]
+  providers: [WishlistService],
 })
 export class WishlistModule {}
