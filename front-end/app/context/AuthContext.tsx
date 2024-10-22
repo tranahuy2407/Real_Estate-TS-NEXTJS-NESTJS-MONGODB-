@@ -6,8 +6,9 @@ import { getProfile } from '../services/auth.service';
 interface User {
     id: string;
     name: string;
-    email?: string;  
+    email?: string;
     avatar?: string; 
+    phone?: string[]; 
 }
 
 interface AuthContextType {
@@ -24,6 +25,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     useEffect(() => {
         const fetchUserProfile = async () => {
             const storedUser = localStorage.getItem('user');
+            
             if (storedUser) {
                 setUser(JSON.parse(storedUser));
             } else {
@@ -46,6 +48,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(userData);
         localStorage.setItem('user', JSON.stringify(userData)); 
     };
+    
 
     const logout = () => {
         setUser(null);

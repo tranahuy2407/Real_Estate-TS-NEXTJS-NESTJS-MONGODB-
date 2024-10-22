@@ -19,8 +19,7 @@ export class AuthController {
         return this.authService.singUp(signUpDto)
     }
 
-    
-    @Post('login')
+    @Post('/login')
     async login(
     @Body() loginDto: LoginDto,
     @Res() res: Response

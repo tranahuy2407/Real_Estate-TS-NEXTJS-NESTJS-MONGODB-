@@ -2,15 +2,9 @@ import axios, { AxiosError } from 'axios';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-interface SignUpDto {
-  email: string;
-  password: string;
-  name: string;
-}
-
-export const signUp = async (signUpDto: SignUpDto): Promise<{ token: string }> => {
+export const signUp = async (email: string, password: string, name: string): Promise<{ token: string }> => {
   try {
-    const response = await axios.post(`${API_URL}/auth/signup`, signUpDto);
+    const response = await axios.post(`${API_URL}/auth/signup`,  { email, password, name });
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError && error.response) {
@@ -41,7 +35,7 @@ export const getProfile = async (): Promise<any> => {
     const response = await axios.get(`${API_URL}/auth/profile`, {
       withCredentials: true 
     });
-    console.log(response.data);
+    
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError && error.response) {
