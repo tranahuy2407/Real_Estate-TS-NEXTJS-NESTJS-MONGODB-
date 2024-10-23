@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AddressModal from './AddressModal';
@@ -8,6 +7,7 @@ import InforUser from './InforUser';
 import ImageUpload from './ImageUpload';  
 import VideoUpload from './VideoUpload';
 import ChooseListingType from './ChooseListingType';
+import TitleAndDescription from './TitleAndDescription';
 
 const PostHome = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -16,6 +16,9 @@ const PostHome = () => {
     const [area, setArea] = useState<string>(''); 
     const [price, setPrice] = useState<string>(''); 
     const [priceUnit, setPriceUnit] = useState<'VNĐ' | 'Giá / m²' | 'Giá / tháng' | 'Giá / năm' | 'Thoả thuận'>('VNĐ');
+    const [title, setTitle] = useState<string>(''); 
+    const [description, setDescription] = useState<string>(''); 
+    const [remainingUses, setRemainingUses] = useState<number>(95);
     const router = useRouter();
     const [step, setStep] = useState<number>(1); 
 
@@ -33,7 +36,7 @@ const PostHome = () => {
             setStep(prev => prev + 1); 
         } else {
             console.log('Submitting post');
-            // Here you would handle form submission logic
+            // Logic xử lý submit form
         }
     };
 
@@ -99,10 +102,16 @@ const PostHome = () => {
             )}
 
             {selectedOption && step === 1 && (
-                <OtherInfor /> 
-            )}
-            {selectedOption && step === 1 && (
-                <InforUser />
+                <>
+                    <OtherInfor /> 
+                    <InforUser />
+                    {/* Truyền props vào TitleAndDescription */}
+                    <TitleAndDescription
+                        title={title}
+                        description={description}
+                        remainingUses={remainingUses}
+                    />
+                </>
             )}
 
             {step === 2 && (
